@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE config SYSTEM "http://www.matsim.org/files/dtd/config_v2.dtd"
 	[
-		<!ENTITY OUTBASE "test/output/org/matsim/contrib/carsharing/runExample/RunCarsharingTest/">
+		<!ENTITY OUTBASE "mytestCSM30_Saturday/output/org/matsim/contrib/carsharing/runExample/RunCarsharingTest/">
 	]
 >
 
@@ -11,7 +11,7 @@
 
 	<module name="controler" >
 		<param name="firstIteration" value="0" />
-		<param name="lastIteration" value="20" />
+		<param name="lastIteration" value="10" />
 		<param name="outputDirectory" value="&OUTBASE;" />
 				<param name="eventsFileFormat" value="xml" />
 		<param name="writePlansInterval" value="1" />
@@ -37,15 +37,15 @@
 
     <module name="Carsharing" >
 	    <param name="statsWriterInterval" value="1" />
-		<param name="vehiclelocations" value="CarsharingStations.xml" />
-		<param name="membership" value="CSMembership.xml" />
+		<param name="vehiclelocations" value="myCarsharingStations.xml" />
+		<param name="membership" value="CSMembership11Mar_30percent.xml" />
 	</module>
 
 
-	<module name="FreeFloating" >
-		<param name="areasFreefloating" value="freefloating_areas.xml" />
-		<param name="useFreeFloating" value="true" />
-	</module>
+<!--	<module name="FreeFloating" >-->
+<!--		<param name="areasFreefloating" value="freefloating_areas.xml" />-->
+<!--		<param name="useFreeFloating" value="true" />-->
+<!--	</module>-->
 
 	<module name="OneWayCarsharing" >
         <param name="useOneWayCarsharing" value="true" />
@@ -55,15 +55,15 @@
 
 	<module name="TwoWayCarsharing" >
         <param name="useTwoWayCarsharing" value="true" />
-        <param name="searchDistanceTwoWayCarsharing" value="500.0" />
+        <param name="searchDistanceTwoWayCarsharing" value="0" />
 
 	</module>
 
 <!-- ====================================================================== -->
 
-	<module name="facilities" >
-		<param name="inputFacilitiesFile" value="facilities.xml" />
-	</module>
+<!--	<module name="facilities" >-->
+<!--		<param name="inputFacilitiesFile" value="facilities.xml" />-->
+<!--	</module>-->
 
 <!-- ====================================================================== -->
 
@@ -77,7 +77,7 @@
 <!-- ====================================================================== -->
 
 	<module name="network" >
-		<param name="inputNetworkFile" value="network.xml" />
+		<param name="inputNetworkFile" value="networkuncropped20Feb.xml" />
 	</module>
 
 <!-- ====================================================================== -->
@@ -86,7 +86,7 @@
 <!--		<param name="inputPersonAttributesFile" value="1000desiresAttributes.xml" />-->
 <!--		(is working without. kai, jun'19)-->
 
-		<param name="inputPlansFile" value="10persons.xml" />
+		<param name="inputPlansFile" value="plan23Feb_forSat_edited.xml" />
 	</module>
 
 
@@ -121,7 +121,7 @@
     <module name="subtourModeChoice" >
 		<param name="chainBasedModes" value="car,bike" />
 		<param name="considerCarAvailability" value="true" />
-		<param name="modes" value="car,bike,pt,walk" />
+		<param name="modes" value="car,bike,walk,train,bus,tram_metro" />
 	</module>
 
 <!-- ====================================================================== -->
@@ -149,7 +149,7 @@
 				<param name="dailyMonetaryConstant" value="0.0" />
 				<param name="dailyUtilityConstant" value="0.0" />
 				<param name="marginalUtilityOfDistance_util_m" value="0.0" />
-				<param name="marginalUtilityOfTraveling_util_hr" value="-0.0" />
+				<param name="marginalUtilityOfTraveling_util_hr" value="-6.0" />
 				<param name="mode" value="oneway_vehicle" />
 				<param name="monetaryDistanceRate" value="0.0" />
 		</parameterset>
@@ -225,7 +225,7 @@
 				<param name="mode" value="car" />
 				<param name="monetaryDistanceRate" value="0.0" />
 		</parameterset>
-		<parameterset type="modeParams" >
+		<!--<parameterset type="modeParams" >
 				<param name="constant" value="-4.0" />
 				<param name="dailyMonetaryConstant" value="0.0" />
 				<param name="dailyUtilityConstant" value="0.0" />
@@ -233,6 +233,33 @@
 				<param name="marginalUtilityOfTraveling_util_hr" value="-0.0" />
 				<param name="mode" value="pt" />
 				<param name="monetaryDistanceRate" value="0.0" />
+		</parameterset>-->
+		<parameterset type="modeParams" >
+			<param name="constant" value="-4.0" />
+			<param name="dailyMonetaryConstant" value="2.0" />
+			<param name="dailyUtilityConstant" value="0.0" />
+			<param name="marginalUtilityOfDistance_util_m" value="0.0" />
+			<param name="marginalUtilityOfTraveling_util_hr" value="-0.0" />
+			<param name="mode" value="bus" />
+			<param name="monetaryDistanceRate" value="0.0" />
+		</parameterset>
+		<parameterset type="modeParams" >
+			<param name="constant" value="-4.0" />
+			<param name="dailyMonetaryConstant" value="2.0" />
+			<param name="dailyUtilityConstant" value="0.0" />
+			<param name="marginalUtilityOfDistance_util_m" value="0.0" />
+			<param name="marginalUtilityOfTraveling_util_hr" value="-0.0" />
+			<param name="mode" value="train" />
+			<param name="monetaryDistanceRate" value="0.0" />
+		</parameterset>
+		<parameterset type="modeParams" >
+			<param name="constant" value="-4.0" />
+			<param name="dailyMonetaryConstant" value="2.0" />
+			<param name="dailyUtilityConstant" value="0.0" />
+			<param name="marginalUtilityOfDistance_util_m" value="0.0" />
+			<param name="marginalUtilityOfTraveling_util_hr" value="-0.0" />
+			<param name="mode" value="tram_metro" />
+			<param name="monetaryDistanceRate" value="0.0" />
 		</parameterset>
 		<parameterset type="modeParams" >
 				<param name="constant" value="-0.4" />
@@ -256,7 +283,7 @@
 		<param name="performing" value="6.0" />
 		<param name="earlyDeparture" value="0" />
 		<param name="waiting" value="0" />
-		<param name="activityType_0" value="h" />
+		<param name="activityType_0" value="HOME" />
 		<param name="activityClosingTime_0" value="23:59:59" />
 		<param name="activityEarliestEndTime_0" value="undefined" />
 		<param name="activityLatestStartTime_0" value="undefined" />
@@ -264,7 +291,55 @@
 		<param name="activityOpeningTime_0" value="00:00:00" />
 		<param name="activityTypicalDuration_0" value="08:00:00" />
 
-		<param name="activityType_7" value="w" />
+		<param name="activityType_11" value="EDUCATION" />
+		<param name="activityClosingTime_11" value="23:59:59" />
+		<param name="activityEarliestEndTime_11" value="undefined" />
+		<param name="activityLatestStartTime_11" value="undefined" />
+		<param name="activityMinimalDuration_11" value="06:00:00" />
+		<param name="activityOpeningTime_11" value="08:00:00" />
+		<param name="activityTypicalDuration_11" value="06:00:00" />
+
+		<param name="activityType_12" value="SHOPPING" />
+		<param name="activityClosingTime_12" value="23:59:59" />
+		<param name="activityEarliestEndTime_12" value="undefined" />
+		<param name="activityLatestStartTime_12" value="undefined" />
+		<param name="activityMinimalDuration_12" value="00:10:00" />
+		<param name="activityOpeningTime_12" value="08:00:00" />
+		<param name="activityTypicalDuration_12" value="06:00:00" />
+
+		<param name="activityType_13" value="RECREATION" />
+		<param name="activityClosingTime_13" value="23:59:59" />
+		<param name="activityEarliestEndTime_13" value="undefined" />
+		<param name="activityLatestStartTime_13" value="undefined" />
+		<param name="activityMinimalDuration_13" value="00:30:00" />
+		<param name="activityOpeningTime_13" value="08:00:00" />
+		<param name="activityTypicalDuration_13" value="01:00:00" />
+
+		<param name="activityType_14" value="SUBTOUR" />
+		<param name="activityClosingTime_14" value="23:59:59" />
+		<param name="activityEarliestEndTime_14" value="undefined" />
+		<param name="activityLatestStartTime_14" value="undefined" />
+		<param name="activityMinimalDuration_14" value="00:01:00" />
+		<param name="activityOpeningTime_14" value="08:00:00" />
+		<param name="activityTypicalDuration_14" value="00:10:00" />
+
+		<param name="activityType_15" value="ACCOMPANY" />
+		<param name="activityClosingTime_15" value="23:59:59" />
+		<param name="activityEarliestEndTime_15" value="undefined" />
+		<param name="activityLatestStartTime_15" value="undefined" />
+		<param name="activityMinimalDuration_15" value="00:01:00" />
+		<param name="activityOpeningTime_15" value="08:00:00" />
+		<param name="activityTypicalDuration_15" value="00:10:00" />
+
+		<param name="activityType_16" value="OTHER" />
+		<param name="activityClosingTime_16" value="23:59:59" />
+		<param name="activityEarliestEndTime_16" value="undefined" />
+		<param name="activityLatestStartTime_16" value="undefined" />
+		<param name="activityMinimalDuration_16" value="00:01:00" />
+		<param name="activityOpeningTime_16" value="08:00:00" />
+		<param name="activityTypicalDuration_16" value="00:10:00" />
+
+		<param name="activityType_7" value="WORK" />
 		<param name="activityClosingTime_7" value="23:59:59" />
 		<param name="activityEarliestEndTime_7" value="undefined" />
 		<param name="activityLatestStartTime_7" value="undefined" />
@@ -337,6 +412,39 @@
 		<parameterset type="teleportedModeParameters" >
 			<param name="beelineDistanceFactor" value="1.3" />
 			<param name="mode" value="pt" />
+
+			<!-- Free-speed factor for a teleported mode. Travel time = teleportedModeFreespeedFactor * <freespeed car travel time>. Insert a line like this for every such mode. Please do not set teleportedModeFreespeedFactor as well as teleportedModeSpeed for the same mode, but if you do, +teleportedModeFreespeedFactor wins over teleportedModeSpeed. -->
+			<param name="teleportedModeFreespeedFactor" value="null" />
+
+			<!-- Speed for a teleported mode. Travel time = (<beeline distance> * beelineDistanceFactor) / teleportedModeSpeed. Insert a line like this for every such mode. -->
+			<param name="teleportedModeSpeed" value="4.5" />
+		</parameterset>
+
+		<parameterset type="teleportedModeParameters" >
+			<param name="beelineDistanceFactor" value="1.3" />
+			<param name="mode" value="bus" />
+
+			<!-- Free-speed factor for a teleported mode. Travel time = teleportedModeFreespeedFactor * <freespeed car travel time>. Insert a line like this for every such mode. Please do not set teleportedModeFreespeedFactor as well as teleportedModeSpeed for the same mode, but if you do, +teleportedModeFreespeedFactor wins over teleportedModeSpeed. -->
+			<param name="teleportedModeFreespeedFactor" value="null" />
+
+			<!-- Speed for a teleported mode. Travel time = (<beeline distance> * beelineDistanceFactor) / teleportedModeSpeed. Insert a line like this for every such mode. -->
+			<param name="teleportedModeSpeed" value="4.5" />
+		</parameterset>
+
+		<parameterset type="teleportedModeParameters" >
+			<param name="beelineDistanceFactor" value="1.3" />
+			<param name="mode" value="train" />
+
+			<!-- Free-speed factor for a teleported mode. Travel time = teleportedModeFreespeedFactor * <freespeed car travel time>. Insert a line like this for every such mode. Please do not set teleportedModeFreespeedFactor as well as teleportedModeSpeed for the same mode, but if you do, +teleportedModeFreespeedFactor wins over teleportedModeSpeed. -->
+			<param name="teleportedModeFreespeedFactor" value="null" />
+
+			<!-- Speed for a teleported mode. Travel time = (<beeline distance> * beelineDistanceFactor) / teleportedModeSpeed. Insert a line like this for every such mode. -->
+			<param name="teleportedModeSpeed" value="4.5" />
+		</parameterset>
+
+		<parameterset type="teleportedModeParameters" >
+			<param name="beelineDistanceFactor" value="1.3" />
+			<param name="mode" value="tram_metro" />
 
 			<!-- Free-speed factor for a teleported mode. Travel time = teleportedModeFreespeedFactor * <freespeed car travel time>. Insert a line like this for every such mode. Please do not set teleportedModeFreespeedFactor as well as teleportedModeSpeed for the same mode, but if you do, +teleportedModeFreespeedFactor wins over teleportedModeSpeed. -->
 			<param name="teleportedModeFreespeedFactor" value="null" />
