@@ -42,7 +42,7 @@ import com.google.inject.name.Named;
 
 /**
  * Class containing all the information about carsharing supply and demand.
- * 
+ *
  * @author balac
  */
 public class CarsharingManagerNew implements CarsharingManagerInterface, IterationStartsListener {
@@ -93,7 +93,7 @@ public class CarsharingManagerNew implements CarsharingManagerInterface, Iterati
 		if (vehicle != null) {
 
 			if ((willHaveATripFromLocation && keepTheCar)
-					|| (willHaveATripFromLocation && carsharingType.equals("twoway"))) {
+					|| (willHaveATripFromLocation && carsharingType.equals("oneway"))) {
 				((CarsharingRoute) legToBeRouted.getRoute()).setKeepthecar(true);
 				return this.routerProvider.routeCarsharingTrip(plan, time, legToBeRouted, carsharingType, vehicle,
 						startLink, destinationLink, true, true);
@@ -180,7 +180,7 @@ public class CarsharingManagerNew implements CarsharingManagerInterface, Iterati
 						startLink, stationLink, destinationLink, person.getId(), chosenVehicle.getVehicleId()));
 
 				if ((willHaveATripFromLocation && keepTheCar)
-						|| (willHaveATripFromLocation && carsharingType.equals("twoway"))) {
+						|| (willHaveATripFromLocation && carsharingType.equals("oneway"))) {
 					((CarsharingRoute) legToBeRouted.getRoute()).setKeepthecar(true);
 
 					return this.routerProvider.routeCarsharingTrip(plan, time, legToBeRouted, carsharingType,

@@ -61,7 +61,10 @@ import com.google.inject.name.Names;
 public class RunCarsharing {
 
 	public static void main(String[] args) {
-		final Config config = ConfigUtils.loadConfig(args[0]);
+		//final Config config = ConfigUtils.loadConfig(args[0]);
+		String fileName = "I:/matsim-libs/contribs/carsharing/test/input/org/matsim/contrib/carsharing/runExample/RunCarsharingIT/myConfig.xml";
+		final Config config = ConfigUtils.loadConfig(fileName);
+
 
 		if (Integer.parseInt(config.getModule("qsim").getValue("numberOfThreads")) > 1)
 			LogManager.getLogger("org.matsim.core.controler").warn(

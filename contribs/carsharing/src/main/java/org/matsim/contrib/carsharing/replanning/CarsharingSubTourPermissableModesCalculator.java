@@ -19,7 +19,7 @@ public class CarsharingSubTourPermissableModesCalculator implements PermissibleM
 	public CarsharingSubTourPermissableModesCalculator(final Scenario scenario, final String[] availableModes,
 			MembershipContainer memberships) {
 		this.scenario = scenario;
-		this.memberships = memberships;		
+		this.memberships = memberships;
 	}
 
 	@Override
@@ -35,12 +35,12 @@ public class CarsharingSubTourPermissableModesCalculator implements PermissibleM
 		}
 
 		if (Boolean.parseBoolean(
-				scenario.getConfig().getModules().get("TwoWayCarsharing").getParams().get("useTwoWayCarsharing"))
+				scenario.getConfig().getModules().get("OneWayCarsharing").getParams().get("useOneWayCarsharing"))
 				&& this.memberships.getPerPersonMemberships().containsKey(personId)) {
 
 			if (this.memberships.getPerPersonMemberships().get(personId).getMembershipsPerCSType()
-					.containsKey("twoway")) {
-				l.add("twoway");
+					.containsKey("oneway")) {
+				l.add("oneway");
 			}
 		}
 

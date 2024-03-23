@@ -3,7 +3,7 @@ package org.matsim.contrib.carsharing.router;
 
 /**
  * @author balacm
- * 
+ *
  **/
 
 
@@ -19,23 +19,23 @@ import org.matsim.core.router.RoutingRequest;
 import org.matsim.facilities.Facility;
 
 public class OneWayCarsharingRoutingModule implements RoutingModule{
-	public OneWayCarsharingRoutingModule() {		
-		
+	public OneWayCarsharingRoutingModule() {
+
 	}
 	@Override
 	public List<? extends PlanElement> calcRoute(RoutingRequest request) {
 		final Facility fromFacility = request.getFromFacility();
 		final Facility toFacility = request.getToFacility();
-		
-		final List<PlanElement> trip = new ArrayList<PlanElement>();		
-		
-		final Leg csLeg = PopulationUtils.createLeg("oneway");
+
+		final List<PlanElement> trip = new ArrayList<>();
+
+		final Leg leg1 = PopulationUtils.createLeg("oneway");
 		CarsharingRoute csRoute = new CarsharingRoute(fromFacility.getLinkId(), toFacility.getLinkId());
-		csLeg.setRoute(csRoute);
-		csLeg.setTravelTime(0.0);
-		trip.add( csLeg );	
-	
-		
+		leg1.setRoute(csRoute);
+		leg1.setTravelTime(0.0);
+		trip.add( leg1 );
+
+
 		return trip;
 	}
 
