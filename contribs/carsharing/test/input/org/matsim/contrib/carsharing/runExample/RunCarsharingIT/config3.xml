@@ -37,7 +37,7 @@
 
     <module name="Carsharing" >
 	    <param name="statsWriterInterval" value="1" />
-		<param name="vehiclelocations" value="myCarsharingStations.xml" />
+		<param name="vehiclelocations" value="myCarsharingStations - Scenario 1.xml" />
 		<param name="membership" value="CSMembership11Mar_30percent.xml" />
 	</module>
 
