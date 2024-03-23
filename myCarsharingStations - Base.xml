@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE companies SYSTEM "src/main/resources/dtd/CarsharingStations.dtd">
+<companies>
+	<company name="StadtTeilAuto">
+		<oneway id="1" x="4474972.514" y="5353714.487" freeparking="2">
+		<vehicle type="car" vehicleID="OW1" />
+		</oneway>
+		<oneway id="2" x="4475677.757296553" y="5352856.075375215" freeparking="2">
+		<vehicle type="car" vehicleID="OW2" />
+		</oneway>
+	</company>
+</companies>
