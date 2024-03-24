@@ -1,0 +1,2 @@
+feed_publisher_name,feed_publisher_url,feed_lang,feed_start_date,feed_end_date,feed_version
+Münchner Verkehrs- und Tarifverbund GmbH (MVV),https://www.mvv-muenchen.de,DE,20231101,20240331,2023.1205.1836
